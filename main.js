@@ -27,17 +27,20 @@ function renderPage(pageNr) {
    );
 }
 
-function onHashChange() {
-  const hash = window.location.hash;
-  console.log('hash has changed', hash);
+function getNextPageNumber() {
+	const hash = window.location.hash;
   let pageNr = 1;
   if (!hash.indexOf('#/page')) {
   	pageNr = Number(hash.substr('#/page'.length)) || 1;
 		pageNr = (pageNr === 1) ? 2 : 1
   }  
-  renderPage(pageNr);
+	return pageNr;	
 }
 
-renderPage(1);
+function onHashChange() {
+  renderPage(getNextPageNumber());
+}
+
+renderPage(getNextPageNumber());
 window.addEventListener('hashchange', onHashChange, false);
 
