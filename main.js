@@ -1,6 +1,7 @@
 const React = preactCompat;
 const ReactDOM = preactCompat;
-const ReactCSSTransitionGroup = PreactCSSTransitionGroup;
+// const ReactCSSTransitionGroup = PreactCSSTransitionGroup;
+const { CSSTransitionGroup: ReactCSSTransitionGroup } = ReactTransitionGroup;
 
 const Page = ({ children: pageNr, type }) => {
 	return (
