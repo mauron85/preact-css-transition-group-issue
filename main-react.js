@@ -1,4 +1,4 @@
-const ReactCSSTransitionGroup = React.addons.CSSTransitionGroup
+const { CSSTransitionGroup } = ReactTransitionGroup;
 
 const Page = ({ children: pageNr, type }) => {
 	return (
@@ -13,14 +13,14 @@ const Page = ({ children: pageNr, type }) => {
 function renderPage(pageNr) {
   const type = pageNr % 2 ? 'odd' : 'even';
 	ReactDOM.render(
-      <ReactCSSTransitionGroup
+      <CSSTransitionGroup
         component="div"
         transitionName={pageNr % 2 ? 'page' : 'pagereverse'}
         transitionEnterTimeout={250}
         transitionLeaveTimeout={250}
       >
       	<Page key={pageNr} type={type}>{pageNr}</Page>
-      </ReactCSSTransitionGroup>
+      </CSSTransitionGroup>
     ,document.getElementById('example')
    );
 }
